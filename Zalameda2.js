@@ -46,7 +46,6 @@ function isValidString(str, alphabet){
 }
 
 function getSkew(str, n){
-
 	var G = 0, C = 0, skew = 0;
 
 	if(str.length <= 0) console.log("Invalid string input!");
@@ -59,4 +58,12 @@ function getSkew(str, n){
 		skew = G - C;
 		console.log("SKEW: " + skew);
 	}
+}
+
+function getMaxSkewN(str, n){
+
+}
+
+function getMinSkewN(str, n){
+	
 }
