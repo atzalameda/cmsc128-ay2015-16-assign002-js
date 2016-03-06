@@ -30,14 +30,12 @@ function countSubstrPattern(origStr, pattern){
 
 function isValidString(str, alphabet){
 
-	var valid;
+	var valid = true;
 
 	for(var i=0; i<str.length; i++){
-		for(var j=0; j<alphabet.length; j++){
-			if(str.charAt(i) == alphabet.charAt(j)){
-				valid = true; // WRONG IMPLEMENTATION! FIX THIS!!
-				break;
-			} else valid = false;
+		if(alphabet.indexOf(str.charAt(i)) < 0){
+			valid = false;
+			break;
 		}
 	}
 
@@ -46,14 +44,15 @@ function isValidString(str, alphabet){
 }
 
 function getSkew(str, n){
+
 	var G = 0, C = 0, skew = 0;
 
 	if(str.length <= 0) console.log("Invalid string input!");
-	else if(n > str.length) console.log("Invalid integer input!");
+	else if(n > str.length || n <= 0) console.log("Invalid integer input!");
 	else{
-		for(var i=0; i<n; i++){
-			if(str.charAt(i) == 'G') G++;
-			else if (str.charAt(i) == 'C') C++;
+		for(var i=1; i<=n; i++){
+			if(str.charAt(i-1) == 'G') G++;
+			else if (str.charAt(i-1) == 'C') C++;
 		}
 		skew = G - C;
 		console.log("SKEW: " + skew);
@@ -62,8 +61,35 @@ function getSkew(str, n){
 
 function getMaxSkewN(str, n){
 
+	var G = 0, C = 0, skew = 0;
+
+	if(str.length <= 0) console.log("Invalid string input!");
+	else if(n > str.length || n <= 0) console.log("Invalid integer input!");
+	else{
+		for(var i=1; i<=n; i++){
+			if(str.charAt(i-1) == 'G') G++;
+			else if (str.charAt(i-1) == 'C') C++;
+
+			if((G - C) > skew) skew = G - C;
+		}
+		console.log("SKEW: " + skew);
+	}
 }
 
 function getMinSkewN(str, n){
-	
+
+	var G = 0, C = 0, skew = 0;
+
+	if(str.length <= 0) console.log("Invalid string input!");
+	else if(n > str.length || n <= 0) console.log("Invalid integer input!");
+	else{
+		for(var i=1; i<=n; i++){
+			if(str.charAt(i-1) == 'G') G++;
+			else if (str.charAt(i-1) == 'C') C++;
+			// FIX THIS! INFINITE LOOP!
+			if(i = 1) skew = G - C;
+			else if((G - C) < skew) skew = G - C;
+		}
+		console.log("SKEW: " +  skew);
+	}
 }
