@@ -1,3 +1,8 @@
+/****************************************************************
+	ZALAMEDA, ANGELICA T.
+	2013-54721
+	ASSIGN 002: Programming a Simple Bioinformatics Library
+****************************************************************/
 
 function getHammingDistance(str1, str2){ // function that counts the number of characters that differ in ith position from position 1 to strlen
 
