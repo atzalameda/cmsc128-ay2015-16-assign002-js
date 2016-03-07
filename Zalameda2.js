@@ -86,8 +86,8 @@ function getMinSkewN(str, n){
 		for(var i=1; i<=n; i++){
 			if(str.charAt(i-1) == 'G') G++;
 			else if (str.charAt(i-1) == 'C') C++;
-			// FIX THIS! INFINITE LOOP!
-			if(i = 1) skew = G - C;
+			
+			if(i == 1) skew = G - C;
 			else if((G - C) < skew) skew = G - C;
 		}
 		console.log("SKEW: " +  skew);
